@@ -17,8 +17,8 @@ namespace EliandroProjetoManha.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Message"] = "Projeto C# aula presencial 01";
+            ViewData["Aluno"] = "Eliandro jeovane Natal da Silva";
             return View();
         }
 
