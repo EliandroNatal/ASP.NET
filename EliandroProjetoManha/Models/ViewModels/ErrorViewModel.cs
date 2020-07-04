@@ -1,6 +1,6 @@
 using System;
 
-namespace EliandroProjetoManha.Models
+namespace EliandroProjetoManha.Models.ViewModels
 {
     public class ErrorViewModel
     {
