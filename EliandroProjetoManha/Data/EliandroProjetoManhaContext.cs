@@ -14,6 +14,8 @@ namespace EliandroProjetoManha.Data
         {
         }
 
-        public DbSet<EliandroProjetoManha.Models.Departamento> Departamento { get; set; }
+        public DbSet<Departamento> Departamento { get; set; }
+        public DbSet<Pedido> Pedido { get; set; }
+        public DbSet<RegistroPedidos> RegistroPedidos { get; set; }
     }
 }

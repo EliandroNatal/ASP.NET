@@ -26,15 +26,15 @@ namespace EliandroProjetoManha.Controllers
         }
 
         // GET: Departamentos/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? pedidoId)
         {
-            if (id == null)
+            if (pedidoId == null)
             {
                 return NotFound();
             }
 
             var departamento = await _context.Departamento
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PedidoId == pedidoId);
             if (departamento == null)
             {
                 return NotFound();
@@ -66,14 +66,14 @@ namespace EliandroProjetoManha.Controllers
         }
 
         // GET: Departamentos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? pedidoId)
         {
-            if (id == null)
+            if (pedidoId == null)
             {
                 return NotFound();
             }
 
-            var departamento = await _context.Departamento.FindAsync(id);
+            var departamento = await _context.Departamento.FindAsync(pedidoId);
             if (departamento == null)
             {
                 return NotFound();
@@ -86,9 +86,9 @@ namespace EliandroProjetoManha.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Departamento departamento)
+        public async Task<IActionResult> Edit(int pedidoId, [Bind("Id,Nome")] Departamento departamento)
         {
-            if (id != departamento.Id)
+            if (pedidoId != departamento.PedidoId)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace EliandroProjetoManha.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartamentoExists(departamento.Id))
+                    if (!DepartamentoExists(departamento.PedidoId))
                     {
                         return NotFound();
                     }
@@ -117,15 +117,15 @@ namespace EliandroProjetoManha.Controllers
         }
 
         // GET: Departamentos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? pedidoId)
         {
-            if (id == null)
+            if (pedidoId == null)
             {
                 return NotFound();
             }
 
             var departamento = await _context.Departamento
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PedidoId == pedidoId);
             if (departamento == null)
             {
                 return NotFound();
@@ -137,17 +137,17 @@ namespace EliandroProjetoManha.Controllers
         // POST: Departamentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int pedidoId)
         {
-            var departamento = await _context.Departamento.FindAsync(id);
+            var departamento = await _context.Departamento.FindAsync(pedidoId);
             _context.Departamento.Remove(departamento);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DepartamentoExists(int id)
+        private bool DepartamentoExists(int pedidoId)
         {
-            return _context.Departamento.Any(e => e.Id == id);
+            return _context.Departamento.Any(e => e.PedidoId == pedidoId);
         }
     }
 }
