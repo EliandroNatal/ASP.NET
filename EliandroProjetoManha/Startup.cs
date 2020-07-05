@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using EliandroProjetoManha.Data;
+using EliandroProjetoManha.Services;
 
 namespace EliandroProjetoManha
 {
@@ -41,6 +42,7 @@ namespace EliandroProjetoManha
                     builder.MigrationsAssembly("EliandroProjetoManha")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<PedidoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
