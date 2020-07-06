@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EliandroProjetoManha.Models;
 using EliandroProjetoManha.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,19 @@ namespace EliandroProjetoManha.Controllers
         {
             var list = _pedidoService.FindAll();
             return View(list);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pedido pedido)
+        {
+            _pedidoService.Insert(pedido);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

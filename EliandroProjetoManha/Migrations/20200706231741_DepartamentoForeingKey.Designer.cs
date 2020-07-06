@@ -3,14 +3,16 @@ using System;
 using EliandroProjetoManha.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EliandroProjetoManha.Migrations
 {
     [DbContext(typeof(EliandroProjetoManhaContext))]
-    partial class EliandroProjetoManhaContextModelSnapshot : ModelSnapshot
+    [Migration("20200706231741_DepartamentoForeingKey")]
+    partial class DepartamentoForeingKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

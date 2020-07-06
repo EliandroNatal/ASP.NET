@@ -9,12 +9,15 @@ namespace EliandroProjetoManha.Models
     {
         [Key]
         public int ProdutoId { get; set; }
+       [Required(ErrorMessage ="Campo Obrigatorio")]
         public string Produto { get; set; }
         public string Fornecedor { get; set; }
         public DateTime Data { get; set; }
+        [Required]
         public double Valor { get; set; }
         public int Quantidade { get; set; }
         public Departamento Departamento { get; set; }
+        public int DepartamentoId { get; set; }
         public ICollection<RegistroPedidos> Pedidos { get; set; } = new List<RegistroPedidos>();
 
         public Pedido()

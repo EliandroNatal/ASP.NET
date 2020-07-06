@@ -1,0 +1,42 @@
+﻿
+@model EliandroProjetoManha.Models.Pedido;
+
+@{
+    ViewData["Title"] = "Cadastrar Pedido";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Pedido</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Produto" class="control-label"></label>
+                <input asp-for="Produto" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Fornecedor" class="control-label"></label>
+                <input asp-for="Fornecedor" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantidade" class="control-label"></label>
+                <input asp-for="Quantidade" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-default" /> 
+            </div>
+        </form>
+    </div>
+</div>
+
+
