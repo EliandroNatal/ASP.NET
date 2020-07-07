@@ -7,24 +7,18 @@ using System.Threading.Tasks;
 
 namespace EliandroProjetoManha.Services
 {
-    public class PedidoService
+    public class DepartamentoService
     {
         private readonly EliandroProjetoManhaContext _context;
 
-        public PedidoService(EliandroProjetoManhaContext context)
+        public DepartamentoService(EliandroProjetoManhaContext context)
         {
             _context = context;
         }
 
-        public List<Pedido> FindAll()
+        public List<Departamento> FindAll()
         {
-            return _context.Pedido.ToList();
-        }
-
-        public void Insert(Pedido obj)
-        {
-            _context.Add(obj);
-            _context.SaveChanges();
+            return _context.Departamento.OrderBy(x => x.Nome).ToList();
         }
     }
 }

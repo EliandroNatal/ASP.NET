@@ -1,5 +1,5 @@
 ﻿
-@model EliandroProjetoManha.Models.Pedido;
+@model EliandroProjetoManha.Models.ViewModels.PedidoFormViewModel
 
 @{
     ViewData["Title"] = "Cadastrar Pedido";
@@ -13,24 +13,29 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div class="form-group">
-                <label asp-for="Produto" class="control-label"></label>
-                <input asp-for="Produto" class="form-control" />
+                <label asp-for="Pedido.Produto" class="control-label"></label>
+                <input asp-for="Pedido.Produto" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Fornecedor" class="control-label"></label>
-                <input asp-for="Fornecedor" class="form-control" />
+                <label asp-for="Pedido.Fornecedor" class="control-label"></label>
+                <input asp-for="Pedido.Fornecedor" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" />
+                <label asp-for="Pedido.Data" class="control-label"></label>
+                <input asp-for="Pedido.Data" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
+                <label asp-for="Pedido.Valor" class="control-label"></label>
+                <input asp-for="Pedido.Valor" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Quantidade" class="control-label"></label>
-                <input asp-for="Quantidade" class="form-control" />
+                <label asp-for="Pedido.Quantidade" class="control-label"></label>
+                <input asp-for="Pedido.Quantidade" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Pedido.DepartamentoId" class="control-label"></label>
+                <select asp-for="Pedido.DepartamentoId" asp-items="@(new SelectList(Model.Departamentos, "PedidoId",
+                "Nome"))" class="from-control"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-default" /> 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EliandroProjetoManha.Models;
+using EliandroProjetoManha.Models.ViewModels;
 using EliandroProjetoManha.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +12,12 @@ namespace EliandroProjetoManha.Controllers
     public class PedidosController : Controller
     {
         private readonly PedidoService _pedidoService;
+        private readonly DepartamentoService _departamentoService;
 
-        public PedidosController(PedidoService pedidoService)
+        public PedidosController(PedidoService pedidoService, DepartamentoService departamentoService)
         {
             _pedidoService = pedidoService;
+            _departamentoService = departamentoService;
         }
         public IActionResult Index()
         {
@@ -24,7 +27,9 @@ namespace EliandroProjetoManha.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var departamentos = _departamentoService.FindAll();
+            var viewModel = new PedidoFormViewModel { Departamentos = departamentos };
+            return View(viewModel);
         }
 
         [HttpPost]
